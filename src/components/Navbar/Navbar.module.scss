@@ -6,6 +6,10 @@
 }
 .item {
     color: white;
+    cursor: pointer;
+    &:hover{
+        color: gold;
+    }
 }
 .active{
     color: gold;

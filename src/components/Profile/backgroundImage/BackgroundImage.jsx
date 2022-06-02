@@ -1,5 +1,4 @@
-import classes from "./BackgroundImage.module.css";
-import MyPosts from "../MyPosts/MyPosts";
+import classes from "./BackgroundImage.module.scss";
 
 const BackgroundImage = (props) => {
     return (

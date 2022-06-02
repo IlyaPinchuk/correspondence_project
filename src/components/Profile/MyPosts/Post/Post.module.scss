@@ -1,0 +1,23 @@
+
+.item{
+    padding: 10px 0;
+    display: flex;
+    color: green;
+
+    img{
+        width: 50px;
+        border-radius: 12px;
+    }
+    .massage{
+        font-weight: 500;
+        padding-left: 10px;
+    }
+    .wrapp_like{
+        display: flex;
+        flex-direction: column;
+        span{
+            text-align: center;
+            color: #FFFFFF;
+        }
+    }
+}

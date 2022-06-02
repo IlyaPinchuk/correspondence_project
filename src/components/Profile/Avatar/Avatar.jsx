@@ -1,4 +1,4 @@
-import classes from "./Aavatar.module.css";
+import classes from "./Aavatar.module.scss";
 
 
 const Avatar = (props) => {
