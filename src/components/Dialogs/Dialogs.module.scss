@@ -1,0 +1,12 @@
+.wrapperDialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+
+  .dialogs {
+    padding: 10px;
+  }
+
+  .massages {
+    padding: 10px;
+  }
+}
