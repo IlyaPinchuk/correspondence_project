@@ -4,13 +4,14 @@
     background: #70b5f9;
 
 }
-.item {
+.item  a{
     color: white;
     cursor: pointer;
+    text-decoration: none;
     &:hover{
         color: gold;
     }
 }
-.active{
+.active a{
     color: gold;
 }
