@@ -1,1 +1,15 @@
 
+.wrapperMyPost {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+
+  .wrapperInput {
+    padding: 10px;
+    .postTitle {
+      margin: 5px 0;
+      color: #FFFFFF;
+    }
+  }
+
+}

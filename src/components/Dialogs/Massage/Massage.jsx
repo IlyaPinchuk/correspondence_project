@@ -4,7 +4,7 @@ import classes from "./Massage.module.scss";
 const Massage = (props) => {
     return (
       <div className={classes.massage}>
-          {props.massage}
+          {props.message}
       </div>
     )
 }

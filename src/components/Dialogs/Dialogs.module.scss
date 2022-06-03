@@ -4,19 +4,24 @@
   background-position: center;
 
 
-  .dialog{
-    display: grid;
-    color: #FFFFFF;
-    grid-template-columns: 2fr 10fr;
+  .dialogs {
+    padding: 10px ;
     background-color: #ffffff10;
     backdrop-filter: blur(12px);
-    .dialogs {
-      padding: 10px 10px 10px 80px;
+    display: flex;
+
+    .dialog {
+      width: 100%;
+      backdrop-filter: blur(12px);
+      //margin: 10px;
+      //background-color: #FFFFFF;
+      //border-radius: 12px;
+      //padding: 10px 10px 10px 80px;
 
     }
-
-    .massages {
-      padding: 10px;
+    .message{
+      width: 100%;
+      backdrop-filter: blur(12px);
     }
   }
 

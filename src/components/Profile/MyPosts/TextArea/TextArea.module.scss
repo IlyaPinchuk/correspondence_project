@@ -1,0 +1,11 @@
+.wrapperArea{
+  textarea{
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    &:focus-visible{
+      outline: none;
+    }
+  }
+}

@@ -1,5 +1,13 @@
 .item{
   padding: 10px;
+  a{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    &:hover{
+      color: gold;
+    }
+  }
 }
 .active{
   color: gold;
