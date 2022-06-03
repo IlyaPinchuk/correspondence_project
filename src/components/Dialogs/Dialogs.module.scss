@@ -1,27 +1,27 @@
 .wrapperDialogs {
   border-radius: 12px;
-  background-image: url("https://www.desktopbackground.org/p/2013/01/24/519699_full-hd-1080p-facebook-wallpapers-hd-desktop-backgrounds-1920x1080_1920x1080_h.jpg");
+  background-image: url("https://w0.peakpx.com/wallpaper/299/582/HD-wallpaper-fathers-stuff-ultra-aero-patterns-dark-black-glasses-pattern-male-crown-father-stuff-mustache-hats-necktie.jpg");
   background-position: center;
 
 
   .dialogs {
     padding: 10px ;
     background-color: #ffffff10;
-    backdrop-filter: blur(12px);
+    //backdrop-filter: blur(12px);
     display: flex;
 
     .dialog {
       width: 100%;
-      backdrop-filter: blur(12px);
-      //margin: 10px;
-      //background-color: #FFFFFF;
-      //border-radius: 12px;
-      //padding: 10px 10px 10px 80px;
+      //backdrop-filter: blur(12px);
 
     }
     .message{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
       width: 100%;
-      backdrop-filter: blur(12px);
+      //backdrop-filter: blur(12px);
     }
   }
 

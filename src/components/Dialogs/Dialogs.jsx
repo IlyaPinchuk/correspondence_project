@@ -2,11 +2,15 @@ import React from "react";
 import classes from "./Dialogs.module.scss";
 import DialogsItems from "./DialogItems/DialogsItems";
 import Massage from "./Massage/Massage";
-import {NavLink} from "react-router-dom";
 
 const Dialogs = (props) => {
-    let messageElemets = props.messageData.map(message => <Massage message={message.message}/>)
-    let dialogElemets = props.dialogsData.map(dialog => <DialogsItems name={dialog.name} id={dialog.id}/>)
+    let dialogElemets = props.state.dialogsPage.dialogs.map(dialog => (
+            <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>
+    ))
+
+    let messageElemets = props.state.dialogsPage.messages.map(message => (
+            <Massage message={message.message}/>
+    ))
 
 
     return (

@@ -1,24 +1,23 @@
 import classes from './Navbar.module.scss';
-import {NavLink} from "react-router-dom";
+import NavLinkItem from './NavLinkItem/NavLinkItem';
+import SidebarFriends from "./SidebarFriends/SidebarFriends";
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+    let sideItem = props.state.sideItem.map(s => <NavLinkItem name={s.name} url={s.url}/>)
+    let sideFriend = props.state.friends.map(f => <SidebarFriends name={f.name} img={f.img}/>)
+    let sliceFriend =sideFriend.slice(0,3);
     return (
         <nav className={classes.nav}>
-            <div className={classes.item} >
-                <NavLink  to="/profile" className = { navData => navData.isActive ? classes.active : classes.noActive } >Profile</NavLink>
+            <div className={classes.navItem}>
+            {sideItem}
             </div>
-            <div className={classes.item}>
-                <NavLink  to="/dialogs" className = { navData => navData.isActive ? classes.active : classes.noActive }>Massages</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/news" className = { navData => navData.isActive ? classes.active : classes.noActive }>News</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/music" className = { navData => navData.isActive ? classes.active : classes.noActive }>Music</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/settings" className = { navData => navData.isActive ? classes.active : classes.noActive }>Settings</NavLink>
+            <div className={classes.wrapperFriends}>
+                <h2 className={classes.friendTitle}>Friends</h2>
+                <div className={classes.friends}>
+                {sliceFriend}
+                </div>
             </div>
         </nav>
     )

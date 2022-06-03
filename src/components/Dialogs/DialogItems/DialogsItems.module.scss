@@ -1,11 +1,27 @@
 .item{
   padding: 10px;
+
   a{
+    display: flex;
+    align-items: center;
+    padding: 10px;
     color: #FFFFFF;
+    background-color: #4e4e4e;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
+    transition: .8s;
     &:hover{
-      color: gold;
+      background-color: orange;
+
+    }
+    .itemLogo{
+      margin-right: 20px;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
     }
   }
 }

@@ -1,22 +1,17 @@
 .nav {
   padding: 20px;
   grid-area: n;
-  background: #70b5f9;
-
-}
-
-.item {
-  a {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-
-    &:hover {
-      color: gold;
+  background: #6082b6;
+  .wrapperFriends{
+    margin-top: 100px;
+    .friendTitle{
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .friends{
+      display: flex;
+      justify-content: space-between;
     }
   }
-}
 
-.item .active {
-  color: gold;
 }

@@ -5,7 +5,7 @@ import TextArea from "./TextArea/TextArea";
 import Avatar from "../Avatar/Avatar";
 
 const MyPosts = (props) => {
-    let postsElement = props.postData.map(p => <Post message={p.message} count={p.count} img={p.img}/>)
+    let postsElement = props.posts.map(p => <Post message={p.message} count={p.count} img={p.img}/>)
 
     return (
         <div>
