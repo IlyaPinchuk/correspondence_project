@@ -1,12 +1,23 @@
 .wrapperDialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+  border-radius: 12px;
+  background-image: url("https://www.desktopbackground.org/p/2013/01/24/519699_full-hd-1080p-facebook-wallpapers-hd-desktop-backgrounds-1920x1080_1920x1080_h.jpg");
+  background-position: center;
 
-  .dialogs {
-    padding: 10px;
+
+  .dialog{
+    display: grid;
+    color: #FFFFFF;
+    grid-template-columns: 2fr 10fr;
+    background-color: #ffffff10;
+    backdrop-filter: blur(12px);
+    .dialogs {
+      padding: 10px 10px 10px 80px;
+
+    }
+
+    .massages {
+      padding: 10px;
+    }
   }
 
-  .massages {
-    padding: 10px;
-  }
 }

@@ -1,6 +1,6 @@
 import classes from "./Profile.module.scss";
 import MyPosts from "./MyPosts/MyPosts";
-import BackgroundImage from "./backgroundImage/BackgroundImage";
+import BackgroundImage from "./Wallpapper/BackgroundImage";
 import Avatar from "./Avatar/Avatar";
 
 const Profile = () => {

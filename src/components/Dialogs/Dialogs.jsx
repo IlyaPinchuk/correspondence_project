@@ -6,6 +6,7 @@ import Massage from "./Massage/Massage";
 const Dialogs = () => {
     return (
         <div className={classes.wrapperDialogs}>
+            <div className={classes.dialog}>
             <div className={classes.dialogs}>
               <DialogsItems name='Jack'/>
               <DialogsItems name='Helen'/>
@@ -19,6 +20,7 @@ const Dialogs = () => {
                 <Massage massage='How are you'/>
                 <Massage massage='U a crazy'/>
                 <Massage massage='Whats up man?'/>
+            </div>
             </div>
         </div>
     )
