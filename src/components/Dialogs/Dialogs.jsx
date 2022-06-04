@@ -2,20 +2,31 @@ import React from "react";
 import classes from "./Dialogs.module.scss";
 import DialogsItems from "./DialogItems/DialogsItems";
 import Massage from "./Massage/Massage";
+import Button from "../Profile/MyPosts/Button/Button";
+import TextArea from "../Profile/MyPosts/TextArea/TextArea";
 
 const Dialogs = (props) => {
-    let dialogElemets = props.state.dialogsPage.dialogs.map(dialog => (
+    let dialogElemets = props.dialogsPage.dialogs.map(dialog => (
         <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>
     ))
 
-    let messageElemets = props.state.dialogsPage.messages.map(message => (
+    let messageElemets = props.dialogsPage.messages.map(message => (
         <Massage message={message.message}/>
     ))
- let newSms = React.createRef();
-    let addSms = () => {
-        let text = newSms.current.value;
-        alert(text)
+
+    let newTextMessage = React.createRef()
+
+
+    let sendMassage = () => {
+        props.sendMassage()
     }
+
+    let onMessageChange = () => {
+        let text = newTextMessage.current.value
+        props.newMessage(text)
+
+    }
+
 
     return (
         <div className={classes.wrapperDialogs}>
@@ -26,10 +37,14 @@ const Dialogs = (props) => {
                 <div className={classes.message}>
                     {messageElemets}
                 </div>
-                <div>
-                    <input ref={newSms}/>
-                    <button onClick={addSms}>Send</button>
-                </div>
+            </div>
+            <div className={classes.chatInput}>
+                <TextArea
+                    innerRef={newTextMessage}
+                    placeholder='Enter message'
+                    onChange={onMessageChange}
+                    value={props.dialogsPage.newMessage}/>
+                <Button onClick={sendMassage} src='https://cdn-icons-png.flaticon.com/512/561/561226.png'/>
             </div>
         </div>
 

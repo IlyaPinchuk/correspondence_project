@@ -4,9 +4,12 @@ const TextArea = (props) => {
 
     return (
         <div className={classes.wrapperArea}>
-            <textarea ref={props.ref}></textarea>
+        <input
+            ref={props.innerRef}
+            value={props.value}
+            placeholder={props.placeholder}
+            onChange={props.onChange}/>
         </div>
-
     )
 }
 export default TextArea

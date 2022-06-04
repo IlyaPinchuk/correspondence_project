@@ -12,22 +12,21 @@ const MyPosts = (props) => {
     let newPost = React.createRef();
 
     let addPost = () => {
-        debugger
+        props.addPost()
+    }
+    let onPostChange = () => {
         let text = newPost.current.value;
-        props.addPost(text)
+        props.updateNewPostText(text);
     }
 
     return (
         <div>
             <div className={classes.wrapperMyPost}>
-                <Avatar
-                    avatar='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd2-mguQ0xN80EZlubSKAE6lv7mn2FJAaX7ctVVkxFBRcf3D3GEHrp3izv0TL9GfK8dN8&usqp=CAU'/>
+                <Avatar avatar='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd2-mguQ0xN80EZlubSKAE6lv7mn2FJAaX7ctVVkxFBRcf3D3GEHrp3izv0TL9GfK8dN8&usqp=CAU'/>
                 <div className={classes.wrapperInput}>
                     <h4 className={classes.postTitle}>My post</h4>
-                    {/*<TextArea ref={newPost}/>*/}
-                    <textarea ref={newPost}></textarea>
-                    {/*<Button  name="Add post" onClick={addPost}/>*/}
-                    <button onClick={addPost}>Add Post</button>
+                    <TextArea innerRef={newPost} onChange={onPostChange} value={props.newPostText}/>
+                    <Button name="Add post" onClick={addPost}/>
                 </div>
             </div>
             <div className={classes.posts}>

@@ -3,25 +3,44 @@
   background-image: url("https://w0.peakpx.com/wallpaper/299/582/HD-wallpaper-fathers-stuff-ultra-aero-patterns-dark-black-glasses-pattern-male-crown-father-stuff-mustache-hats-necktie.jpg");
   background-position: center;
 
-
   .dialogs {
-    padding: 10px ;
+    padding: 10px;
     background-color: #ffffff10;
-    //backdrop-filter: blur(12px);
     display: flex;
 
     .dialog {
       width: 100%;
-      //backdrop-filter: blur(12px);
 
     }
-    .message{
+
+    .message {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
       width: 100%;
-      //backdrop-filter: blur(12px);
+    }
+  }
+
+  .chatInput {
+    padding-top: 15px;
+    display: flex;
+    background-color: #2b323c;
+
+    input {
+      color: #FFFFFF;
+      width: 100%;
+      background: #2b323c;
+    }
+
+    button {
+      background-color: #2b323c;
+      width: 60px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
