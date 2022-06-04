@@ -5,13 +5,17 @@ import Massage from "./Massage/Massage";
 
 const Dialogs = (props) => {
     let dialogElemets = props.state.dialogsPage.dialogs.map(dialog => (
-            <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>
+        <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>
     ))
 
     let messageElemets = props.state.dialogsPage.messages.map(message => (
-            <Massage message={message.message}/>
+        <Massage message={message.message}/>
     ))
-
+ let newSms = React.createRef();
+    let addSms = () => {
+        let text = newSms.current.value;
+        alert(text)
+    }
 
     return (
         <div className={classes.wrapperDialogs}>
@@ -22,7 +26,10 @@ const Dialogs = (props) => {
                 <div className={classes.message}>
                     {messageElemets}
                 </div>
-
+                <div>
+                    <input ref={newSms}/>
+                    <button onClick={addSms}>Send</button>
+                </div>
             </div>
         </div>
 
