@@ -1,5 +1,5 @@
-import ReactDOM from "@types/react-dom/client";
-import React from "@types/react";
+import ReactDOM from "react-dom";
+import React from "react";
 import App from "./App";
 import {addPost} from "./components/Redux/state";
 import * as root from "@testing-library/react";
