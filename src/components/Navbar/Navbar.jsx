@@ -4,7 +4,6 @@ import SidebarFriends from "./SidebarFriends/SidebarFriends";
 
 
 const Navbar = (props) => {
-
     let sideItem = props.state.sideItem.map(s => <NavLinkItem name={s.name} url={s.url}/>)
     let sideFriend = props.state.friends.map(f => <SidebarFriends name={f.name} img={f.img}/>)
     let sliceFriend =sideFriend.slice(0,3);

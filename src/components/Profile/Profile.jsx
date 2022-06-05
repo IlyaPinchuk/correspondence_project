@@ -7,8 +7,7 @@ const Profile = (props) => {
         <div className={classes.content}>
             <BackgroundImage src='https://cdn5.f-cdn.com/contestentries/1533674/20850863/5d2bac5b60bd2_thumb900.jpg'/>
             <MyPosts
-                posts={props.profilePage.posts}
-                newPostText={props.profilePage.newPostText}
+                profilePage={props.profilePage}
                 dispatch={props.dispatch}/>
         </div>
     )

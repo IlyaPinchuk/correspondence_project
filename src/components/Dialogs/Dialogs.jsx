@@ -3,8 +3,8 @@ import classes from "./Dialogs.module.scss";
 import DialogsItems from "./DialogItems/DialogsItems";
 import Massage from "./Massage/Massage";
 import Button from "../Profile/MyPosts/Button/Button";
-import TextArea from "../Profile/MyPosts/TextArea/TextArea";
-import {newMessageActionCreator, sendMessageActionCreator} from "../Redux/state";
+import Input from "../Profile/MyPosts/TextArea/TextArea";
+import {newMessageActionCreator, sendMessageActionCreator} from "../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
@@ -16,15 +16,13 @@ const Dialogs = (props) => {
         <Massage message={message.message}/>
     ))
 
-    let newTextMessage = React.createRef()
-
 
     let sendMassage = () => {
         props.dispatch(sendMessageActionCreator())
     }
 
-    let onMessageChange = () => {
-        let text = newTextMessage.current.value
+    let onMessageChange = (e) => {
+        let text = e.target.value;
         props.dispatch(newMessageActionCreator(text))
 
     }
@@ -41,11 +39,10 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={classes.chatInput}>
-                <TextArea
-                    innerRef={newTextMessage}
+                <Input
                     placeholder='Enter message'
                     onChange={onMessageChange}
-                    value={props.dialogsPage.newMessage}/>
+                    value={props.dialogsPage.newMessageText}/>
                 <Button onClick={sendMassage} src='https://cdn-icons-png.flaticon.com/512/561/561226.png'/>
             </div>
         </div>
