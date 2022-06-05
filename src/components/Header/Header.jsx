@@ -4,7 +4,7 @@ const Header = () => {
   return (
       <header className={classes.header}>
           <img
-              src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG12.png"
+              src="https://cdn-icons-png.flaticon.com/512/1411/1411681.png"
               alt=""/>
       </header>
   )
