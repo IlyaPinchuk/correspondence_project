@@ -4,8 +4,10 @@ import DialogsItems from "./DialogItems/DialogsItems";
 import Massage from "./Massage/Massage";
 import Button from "../Profile/MyPosts/Button/Button";
 import TextArea from "../Profile/MyPosts/TextArea/TextArea";
+import {newMessageActionCreator, sendMessageActionCreator} from "../Redux/state";
 
 const Dialogs = (props) => {
+
     let dialogElemets = props.dialogsPage.dialogs.map(dialog => (
         <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>
     ))
@@ -18,12 +20,12 @@ const Dialogs = (props) => {
 
 
     let sendMassage = () => {
-        props.sendMassage()
+        props.dispatch(sendMessageActionCreator())
     }
 
     let onMessageChange = () => {
         let text = newTextMessage.current.value
-        props.newMessage(text)
+        props.dispatch(newMessageActionCreator(text))
 
     }
 
