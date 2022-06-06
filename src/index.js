@@ -4,21 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from "./App";
 import store from "./components/Redux/redux-store";
+import {Provider} from "react-redux";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-let rerenderDom = (state) => {
-    root.render(<React.StrictMode>
-        <App store={state} dispatch={store.dispatch.bind(store)}/>
-    </React.StrictMode>);
-
-}
-
+root.render(<React.StrictMode>
+    <Provider store={store}>
+        <App/>
+    </Provider>
+</React.StrictMode>);
 reportWebVitals();
 
-rerenderDom(store.getState())
-
-store.subscribe(() =>{
-    let state = store.getState()
-    rerenderDom(state)
-});
