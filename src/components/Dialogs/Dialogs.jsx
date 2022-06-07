@@ -7,9 +7,9 @@ import Input from "../Profile/MyPosts/TextArea/TextArea";
 
 const Dialogs = (props) => {
 
-    let dialogElemets = props.dialogsPage.dialogs.map(dialog => <DialogsItems name={dialog.name} id={dialog.id} img={dialog.img}/>)
+    let dialogElemets = props.dialogsPage.dialogs.map(d => <DialogsItems name={d.name} id={d.id} key={d.id} img={d.img}/>)
 
-    let messageElemets = props.dialogsPage.messages.map(message => <Massage message={message.message}/>)
+    let messageElemets = props.dialogsPage.messages.map(m => <Massage message={m.message} key={m.id}/>)
 
     let sendMassage = () => props.sendMassage()
 
