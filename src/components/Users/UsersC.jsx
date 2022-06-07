@@ -6,31 +6,44 @@ import Button from "../Profile/MyPosts/Button/Button";
 import axios from "axios";
 
 class Users extends React.Component {
-
-    constructor(props) {
-        super(props);
-        axios.get("https://reqres.in/api/users?page").then(r => {
-            this.props.setUsers(r.data.data)
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(r => {
+            this.props.setUsers(r.data.items)
+            this.props.setTotalUsersCount(r.data.totalCount)
+        })
+    }
+    onPageChanged = (page) => {
+        this.props.setCurrentPageAC(page);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`).then(r => {
+            this.props.setUsers(r.data.items)
         })
     }
 
     render() {
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+        let pages = []
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i)
+            if (i === 10 ) break
+        }
         return <div>
+
             {
                 this.props.users.map(u =>
                     <div key={u.id} className={classes.wrapperUser}>
                         <div className={classes.UserInfoWrap}>
                             <div className={classes.userPhoto}>
                                 <Avatar avatar={
-                                    u.avatar != null
-                                        ? u.avatar
+                                    u.photos.small != null
+                                        ? u.photos.small
                                         : userPhoto}/>
                             </div>
                             <div className={classes.wrappInfo}>
-                                <span className={classes.name}>{u.first_name + ' ' + u.last_name}</span>
+                                <span className={classes.name}>{u.name}</span>
                                 <span className={classes.status}>{u.status}</span>
                                 <div className={classes.wrapLocation}>
-                                    <span>{u.email}</span>
+                                    <span>{"u.location.country"} </span>
+                                    <span>{"u.location.city"} </span>
                                 </div>
                             </div>
                         </div>
@@ -40,6 +53,12 @@ class Users extends React.Component {
                         </div>
                     </div>
                 )}
+            <div className={classes.pagination}>
+                {pages.map(p => {
+                    return <span onClick={() => this.onPageChanged(p)} className={this.props.currentPage === p && classes.selectPage}>{p}</span>
+                })
+                }
+            </div>
         </div>
     }
 }
