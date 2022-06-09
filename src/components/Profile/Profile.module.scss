@@ -1,3 +1,15 @@
 .content {
-  padding: 20px;
+  padding: 10px;
+
+  .backgroundImg {
+    border-radius: 12px;
+    height: 200px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin-bottom: -50px;
+  }
+  .profile{
+    display: flex;
+  }
 }

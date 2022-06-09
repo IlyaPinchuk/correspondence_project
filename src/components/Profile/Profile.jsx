@@ -1,12 +1,16 @@
 import classes from "./Profile.module.scss";
-import BackgroundImage from "./Wallpapper/BackgroundImage";
+import ProfileInfo from "./Wallpapper/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import backImg from "../../assets/backImg.jpg";
 
 const Profile = (props) => {
     return (
         <div className={classes.content}>
-            <BackgroundImage src='https://cdn5.f-cdn.com/contestentries/1533674/20850863/5d2bac5b60bd2_thumb900.jpg'/>
+            <div className={classes.backgroundImg} style={{ backgroundImage: `url(${backImg})` }}></div>
+            <div className={classes.profile}>
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer/>
+            </div>
         </div>
     )
 }

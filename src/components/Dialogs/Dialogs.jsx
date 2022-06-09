@@ -5,13 +5,14 @@ import Massage from "./Massage/Massage";
 import Button from "../Profile/MyPosts/Button/Button";
 import Input from "../Profile/MyPosts/TextArea/TextArea";
 
+
 const Dialogs = (props) => {
 
-    let dialogElemets = props.dialogsPage.dialogs.map(d => <DialogsItems name={d.name} id={d.id} key={d.id} img={d.img}/>)
+    let dialogElemets = props.dialogsPage.dialogs.map(d => <DialogsItems  name={d.name} id={d.id} key={d.id} img={d.img}/>)
 
     let messageElemets = props.dialogsPage.messages.map(m => <Massage message={m.message} key={m.id}/>)
 
-    let sendMassage = () => props.sendMassage()
+    let sendMassage = () => props.sendMessage()
 
     let onMessageChange = (e) => {
         let text = e.target.value

@@ -19,8 +19,7 @@ const MyPosts = (props) => {
     return (
         <div>
             <div className={classes.wrapperMyPost}>
-                <Avatar
-                    avatar='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd2-mguQ0xN80EZlubSKAE6lv7mn2FJAaX7ctVVkxFBRcf3D3GEHrp3izv0TL9GfK8dN8&usqp=CAU'/>
+
                 <div className={classes.wrapperInput}>
                     <h4 className={classes.postTitle}>My post</h4>
                     <TextArea onChange={onPostChange} value={props.newPostText}/>
