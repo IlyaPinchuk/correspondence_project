@@ -17,8 +17,7 @@ let initialState = {
         }],
     newPostText: '',
     profile: null
-
-}
+};
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -43,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
 
 export default profileReducer;

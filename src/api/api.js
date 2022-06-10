@@ -18,6 +18,10 @@ export const userAPI = {
     },
     authMe() {
        return  instance.get('auth/me').then(r => r.data)
+    },
+    profileUser() {
+        return instance.get('profile/2').then(r => r.data)
     }
+
 }
 

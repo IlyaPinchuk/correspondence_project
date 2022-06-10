@@ -1,13 +1,11 @@
 import React from "react";
-import { onMessageChange, sendMessage} from "../Redux/dialogs-reducer";
+import {onMessageChange, sendMessage} from "../Redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => {
-    return {
-        dialogsPage: state.dialogsPage
-    }
-}
-const DialogsContainer = connect(mapStateToProps, {sendMessage,onMessageChange}) (Dialogs);
+const mapStateToProps = (state) => ({dialogsPage: state.dialogsPage});
+const mapDispatchToProps = () => ({sendMessage, onMessageChange});
 
-export default DialogsContainer
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+export default DialogsContainer;
