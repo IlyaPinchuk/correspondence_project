@@ -6,6 +6,7 @@ import {
     TOGGLE_IS_LOADER,
     UN_FOLLOW, SET_USERS
 } from "./action";
+import {updateObjectInArray} from "../../../untils/object-helpers";
 
 let initialState = {
     users: [],
@@ -23,24 +24,13 @@ const usersReducer = (state = initialState, action) => {
         case FOLLOW:
             return {
                 ...state,
-                users: state.users.map(user => {
-                    if (user.id === action.userId) {
-                        return {...user, followed: true}
-                    }
-                    return user
-                })
+                users: updateObjectInArray(state.users, action.userId, "id", {followed: true})
             };
         case UN_FOLLOW:
             return {
                 ...state,
-                users: state.users.map(user => {
-                    if (user.id === action.userId) {
-                        return {...user, followed: false}
-                    }
-                    return user
-                })
+                users: updateObjectInArray(state.users, action.userId, "id", {followed: false})
             };
-
         case SET_TOTAL_COUNT:
             return {...state, totalUsersCount: action.totalCount};
         case SET_CURRENT_PAGE:

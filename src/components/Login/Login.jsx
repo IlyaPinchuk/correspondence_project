@@ -7,20 +7,19 @@ import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import classes from "./Login.module.scss";
 
-const RJ =  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-const Login = (props) => {
+const Login = ({isAuth, userId, login}) => {
     let navigate = useNavigate();
     useEffect(() => {
-        if (props.isAuth) return navigate(`/profile/${props.userId}`)
-    }, [props.isAuth]);
+        if (isAuth) return navigate(`/profile/${userId}`)
+    }, [isAuth]);
     return (
         <div className={classes.loginBlock}>
             <h1>Login</h1>
             <Formik
                 initialValues={{email: '', password: '', rememberMe: false}}
                 onSubmit={(values) => {
-                    props.login(values.email, values.password, values.rememberMe)
+                    login(values.email, values.password, values.rememberMe)
                 }}
                 validate={values => {
                     const errors = {};

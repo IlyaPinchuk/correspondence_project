@@ -16,37 +16,28 @@ export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_COUNT, total
 export const setIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADER, isLoading});
 export const toggleFollowingProgress = (IsActive, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, IsActive, userId});
 
-export const requestUsers = (currentPage, pageSize) => {
-    return (dispatch) => {
-        dispatch(setIsLoading(true));
-        userAPI.getUsers(currentPage, pageSize).then(data => {
-            dispatch(setIsLoading(false));
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-        })
-    }
+export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
+    dispatch(setIsLoading(true));
+    const data = await userAPI.getUsers(currentPage, pageSize);
+    dispatch(setIsLoading(false));
+    dispatch(setUsers(data.items));
+    dispatch(setTotalUsersCount(data.totalCount));
 }
 
-export const follow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingProgress(true, userId));
-        userAPI.follow(userId).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(followSuccess(userId));
-            }
-            dispatch(toggleFollowingProgress(false, userId));
-        })
+
+const changeFollow = async (dispatch, userId, apiMethod, actionCreator) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    const data = await apiMethod(userId);
+    if (data.resultCode === 0) {
+        dispatch(actionCreator(userId));
     }
+    dispatch(toggleFollowingProgress(false, userId));
 }
 
-export const unFollow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleFollowingProgress(true, userId));
-        userAPI.unFollow(userId).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(unFollowSuccess(userId));
-            }
-            dispatch(toggleFollowingProgress(false, userId));
-        })
-    }
+export const follow = (userId) => (dispatch) => {
+    changeFollow(dispatch, userId,  userAPI.follow, followSuccess)
+}
+
+export const unFollow = (userId) => (dispatch) => {
+     changeFollow(dispatch, userId, userAPI.unFollow, unFollowSuccess)
 }
