@@ -1,36 +1,37 @@
 import React from "react";
 import classes from "./MyPosts.module.scss";
 import Post from "./Post/Post";
-import Button from "./Button/Button";
-import TextArea from "./TextArea/TextArea";
-import Avatar from "../Avatar/Avatar";
+import Button from "../../common/Button/Button";
+import Input from "../../common/Input/Input";
+import {useDispatch, useSelector} from "react-redux";
+import {addPost, onPostChange} from "../Redux/action";
 
-const MyPosts = (props) => {
-    let postsElement = props.posts.map(p => <Post message={p.message} count={p.count} key={p.id} img={p.img}/>)
+const MyPosts = () => {
 
-    let addPost = () => {
-        props.addPost();
-    }
-    let onPostChange = (e) => {
-        let text = e.target.value;
-        props.onPostChange(text);
-    }
+    const dispatch = useDispatch();
+    const {posts, newPostText} = useSelector((state) => ({
+        posts: state.profilePage.posts,
+        newPostText: state.profilePage.newPostText
+    }));
+    const setPost = () => dispatch(addPost());
+
+    const onChange = (e) => dispatch(onPostChange(e.currentTarget.value));
 
     return (
         <div>
             <div className={classes.wrapperMyPost}>
-
                 <div className={classes.wrapperInput}>
                     <h4 className={classes.postTitle}>My post</h4>
-                    <TextArea onChange={onPostChange} value={props.newPostText}/>
-                    <Button name="Add post" onClick={addPost}/>
+                    <Input value={newPostText} onChange={onChange}/>
+                    <Button name="Add post" onClick={setPost}/>
                 </div>
             </div>
             <div className={classes.posts}>
-                {postsElement}
+                {posts.map(p => <Post message={p.message} count={p.count} key={p.id} img={p.img}/>)}
             </div>
         </div>
 
     )
-}
-export default MyPosts
+};
+
+export default MyPosts;

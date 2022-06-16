@@ -1,0 +1,28 @@
+.loginBlock{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1{
+    text-align: center;
+    color: darkorange;
+    font-size: 48px;
+    margin: 0;
+  }
+  .wrapperForm{
+    color: #FFFFFF;
+    div{
+      margin: 20px 0;
+      input{
+        height: 30px;
+        border-radius: 6px;
+        border: none;
+        padding: 0 10px;
+      }
+      .input-error {
+        border-color: red;
+      }
+    }
+  }
+}

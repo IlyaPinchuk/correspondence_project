@@ -1,0 +1,43 @@
+
+.wrapperProfile {
+  color: #FFFFFF;
+
+  .addFile {
+    cursor: pointer;
+    margin-left: -40px;
+    padding: 0px 10px;
+    border-radius: 12px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+    }
+  }
+
+  input[type='file'] {
+    display: none;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    padding: 0 20px;
+  }
+
+  .wrapperName {
+    span {
+      font-size: 24px;
+      text-transform: capitalize;
+    }
+  }
+
+  .AboutMe {
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+  }
+}

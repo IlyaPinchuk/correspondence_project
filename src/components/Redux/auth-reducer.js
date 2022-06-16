@@ -1,3 +1,5 @@
+import {userAPI} from "../../api/api";
+
 const SET_USER_DATA = 'SET_USER_DATA'
 const SET_USER_PHOTO = 'SET_USER_PHOTO'
 
@@ -6,7 +8,7 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-    photo:null
+    photo: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -15,7 +17,6 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.data,
-                isAuth: true
             }
         case SET_USER_PHOTO:
             return {
@@ -26,11 +27,36 @@ const authReducer = (state = initialState, action) => {
 
             }
         default:
-            return  state
+            return state
     }
-}
+};
 
-export const setAuthUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}})
-export const setUserPhoto = (photo) => ({type: SET_USER_DATA, data:{photo}})
+export const setAuthUserData = (userId, email, login, isAuth) => ({
+    type: SET_USER_DATA,
+    data: {userId, email, login, isAuth}
+});
+export const setUserPhoto = (photo) => ({type: SET_USER_DATA, data: {photo}});
+
+export const getAuth = () => async (dispatch) => {
+    const response = await userAPI.authMe();
+    if (response.resultCode === 0) {
+        let {id, login, email} = response.data;
+        dispatch(setAuthUserData(id, email, login, true));
+    }
+};
+
+export const login = (email, password, rememberMe) => async (dispatch) => {
+    const response = await userAPI.login(email, password, rememberMe);
+    if (response.resultCode === 0) {
+        dispatch(getAuth())
+    }
+};
+
+export const logout = () => async (dispatch) => {
+    const response = await userAPI.logout();
+    if (response.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false));
+    }
+};
 
 export default authReducer;
