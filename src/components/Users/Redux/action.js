@@ -20,8 +20,8 @@ export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
     dispatch(setIsLoading(true));
     const data = await userAPI.getUsers(currentPage, pageSize);
     dispatch(setIsLoading(false));
-    dispatch(setUsers(data.items));
     dispatch(setTotalUsersCount(data.totalCount));
+    dispatch(setUsers(data.items));
 }
 
 

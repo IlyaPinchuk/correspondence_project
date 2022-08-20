@@ -1,21 +1,25 @@
 
 .item {
-  &:last-child{
+  margin: 5px 0;
+  padding: 5px 20px;
+  cursor: pointer;
+  display: block;
+  color: lightgray;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: .2s;
+  &:hover, &.active {
+    background: #4e4e4e6e;
+    border-radius: 6px;
+    color: #FFFFFF;
+  }
+  &:last-child {
     margin-top: 30px;
   }
-  a {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    transition: .5s;
-    &:hover {
-      color: orange;
-    }
+  svg{
+    margin-right: 5px;
+    font-size: 14px;
   }
 }
 
-.item .active {
-  color: orange;
-}

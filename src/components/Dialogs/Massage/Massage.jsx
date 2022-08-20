@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./Massage.module.scss";
 
-const Massage = (props) => {
+const Massage = ({message}) => {
     return (
       <div className={classes.massage}>
-          {props.message}
+          {message}
       </div>
     )
 }

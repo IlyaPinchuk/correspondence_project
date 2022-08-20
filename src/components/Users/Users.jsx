@@ -24,7 +24,8 @@ const Users = () => {
         dispatch(setCurrentPage(page));
     };
 
-    return (<div>
+    return (
+        <div style={{display:"flex", justifyContent:"space-between", flexDirection:"column", width:'100%'}}>
             {isLoading &&
                 <Loader />
             }

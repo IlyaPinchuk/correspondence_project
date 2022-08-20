@@ -5,15 +5,15 @@ import {useDispatch} from "react-redux";
 import {updateStatus} from "../../Redux/action";
 
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({profileStatus}) => {
 
     const dispatch = useDispatch();
     const [editMode, setEditMode] = useState(false);
-    const [status, setStatus] = useState(props.status);
+    const [status, setStatus] = useState(profileStatus);
 
     useEffect(() =>{
-        setStatus(props.status);
-    }, [props.status])
+        setStatus(profileStatus);
+    }, [profileStatus])
 
     const deactivateMode = () => {
         setEditMode(false);
@@ -24,7 +24,7 @@ const ProfileStatus = (props) => {
         <div>
             {!editMode &&
                 <div className={classes.AboutMe}>
-                    <span onDoubleClick={() => setEditMode(true)}>{props.status}</span>
+                    <span onDoubleClick={() => setEditMode(true)}>{profileStatus}</span>
                 </div>
             }
             {editMode &&

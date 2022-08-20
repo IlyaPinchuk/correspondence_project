@@ -1,4 +1,9 @@
 .wrapperDialogs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   background-image: url("https://w0.peakpx.com/wallpaper/299/582/HD-wallpaper-fathers-stuff-ultra-aero-patterns-dark-black-glasses-pattern-male-crown-father-stuff-mustache-hats-necktie.jpg");
   background-position: center;

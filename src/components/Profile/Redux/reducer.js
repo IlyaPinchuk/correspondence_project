@@ -1,4 +1,13 @@
-import {ADD_POST, DELETE_POST, SET_PHOTO, SET_STATUS, SET_USER_PROFILE, UPDATE_NEW_POST_TEXT} from "./action";
+import {
+    ADD_POST,
+    DELETE_POST,
+    IS_OWNER,
+    isOwner,
+    SET_PHOTO,
+    SET_STATUS,
+    SET_USER_PROFILE,
+    UPDATE_NEW_POST_TEXT
+} from "./action";
 
 
 let initialState = {
@@ -32,6 +41,8 @@ let initialState = {
     },
     status: '',
     photo: null,
+    isOwner: false,
+
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -69,6 +80,15 @@ const profileReducer = (state = initialState, action) => {
             }
         case DELETE_POST: {
             return {...state, posts: state.posts.filter(p => p.id != action.postId)}
+        }
+        case IS_OWNER: {
+            return {
+                ...state,
+                isOwner: action.owner
+
+
+            }
+
         }
         default:
             return state;

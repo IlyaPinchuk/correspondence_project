@@ -1,28 +1,73 @@
-.loginBlock{
-  height: 100%;
+
+.loginBlock {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  h1{
-    text-align: center;
+  background: #FFFFFF;
+  width: 400px;
+  max-height: 500px;
+  margin: 20px auto;
+  padding: 50px 10px;
+  border-radius: 12px;
+
+  h1 {
     color: darkorange;
     font-size: 48px;
-    margin: 0;
+    margin-top: 0;
   }
-  .wrapperForm{
-    color: #FFFFFF;
-    div{
-      margin: 20px 0;
-      input{
-        height: 30px;
+
+  .wrapperForm {
+    .itemForm {
+      width: 220px;
+      input[type='text'], [type='password'] {
+        font-size: 16px;
+        margin: 10px 0;
+        height: 20px;
+        padding: 10px;
         border-radius: 6px;
-        border: none;
+        border: 2px solid lightgray;
+
+        &:focus-visible {
+          outline-color: #13131347;
+        }
+
+        &.required {
+          border-color: red;
+
+        }
+
+      }
+
+      .textError {
+        color: red;
+        margin: 0;
+      }
+
+    }
+
+
+    .rememberMeBlock {
+      margin: 10px 0;
+      display: flex;
+
+      input {
+        width: 20px;
+        height: 18px;
+      }
+
+      label {
         padding: 0 10px;
+        text-transform: capitalize;
+        font-size: 16px;
       }
-      .input-error {
-        border-color: red;
-      }
+    }
+
+    button {
+      height: 40px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 10px;
     }
   }
 }
+

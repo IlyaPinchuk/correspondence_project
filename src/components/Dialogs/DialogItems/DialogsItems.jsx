@@ -2,14 +2,14 @@ import React from "react";
 import classes from "./DialogsItems.module.scss";
 import {NavLink} from "react-router-dom";
 
-const DialogsItems = (props) => {
+const DialogsItems = ({id, img, name}) => {
     return (
         <div className={classes.item}>
-            <NavLink to={props.id}>
+            <NavLink to={id}>
                 <div className={classes.itemLogo}>
-                    <img src={props.img} alt=""/>
+                    <img src={img} alt=""/>
                 </div>
-                {props.name}</NavLink>
+                {name}</NavLink>
         </div>
     )
 }

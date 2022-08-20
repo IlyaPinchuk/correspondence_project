@@ -1,21 +1,25 @@
 import classes from './Navbar.module.scss';
 import NavLinkItem from './NavLinkItem/NavLinkItem';
-import SidebarFriends from "./SidebarFriends/SidebarFriends";
+import {useDispatch, useSelector} from "react-redux";
+import Button from "../common/Button/Button";
+import React from "react";
+import {logout} from "../Redux/auth-reducer";
+import {AiOutlineLogout} from "react-icons/ai";
 
 
-const Navbar = (props) => {
+const Navbar = () => {
+    const dispatch = useDispatch();
+    const log = () => dispatch(logout());
+    const sideItem = useSelector(state => state.sidebar.sideItem)
+
     return (
         <nav className={classes.nav}>
-            <div className={classes.navItem}>
-                {props.sideItem.map(s => <NavLinkItem name={s.name} key={s.id} url={s.url}/>)}
-            </div>
-            <div className={classes.wrapperFriends}>
-                <h2 className={classes.friendTitle}>Friends</h2>
-                <div className={classes.friends}>
-                    {props.friends.map(f => <SidebarFriends name={f.name} key={f.id} img={f.img} />)}
-                </div>
+            {sideItem.map(s => <NavLinkItem name={s.name} key={s.id} url={s.url} icon={s.icon}/>)}
+            <div className={classes.logout}>
+                <AiOutlineLogout/>
+                <Button onClick={log} name={'Logout'}/>
             </div>
         </nav>
     )
 }
-export default Navbar
+export default Navbar;

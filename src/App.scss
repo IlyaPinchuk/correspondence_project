@@ -1,17 +1,20 @@
 .app-wrapper {
+  height: calc(100vh - 10px);
   display: grid;
   grid-template-areas:"h h" "n c";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
-  width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 0 20px;
 }
 
 .app-wrapper-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   grid-area: c;
   background: #2b323c;
   border-radius: 12px;
-  padding: 10px;
+  padding: 20px;
 }

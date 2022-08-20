@@ -4,15 +4,14 @@ import DialogsItems from "./DialogItems/DialogsItems";
 import Massage from "./Massage/Massage";
 import Button from "../common/Button/Button";
 import Input from "../common/Input/Input";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 import {onMessageChange, sendMessage} from "./Redux/action";
 import {useDispatch, useSelector} from "react-redux";
 
 
 const Dialogs = () => {
-    const {dialogsPage, isAuth, newMessage} = useSelector((state) => ({
+    const {dialogsPage, isAuth} = useSelector((state) => ({
         dialogsPage: state.dialogsPage,
-        newMessage: state.dialogsPage.newMessageText,
         isAuth: state.auth.isAuth
     }));
     const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const Dialogs = () => {
                 </div>
             </div>
             <div className={classes.chatInput}>
-                <Input placeholder='Enter message' onChange={onChange} value={newMessage}/>
+                <Input placeholder='Enter message' onChange={onChange} value={dialogsPage.newMessageText}/>
                 <Button onClick={postMessage} src='https://cdn-icons-png.flaticon.com/512/561/561226.png'/>
             </div>
         </div>

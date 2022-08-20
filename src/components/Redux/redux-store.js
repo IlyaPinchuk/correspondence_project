@@ -6,6 +6,7 @@ import profileReducer from "../Profile/Redux/reducer";
 import usersReducer from "../Users/Redux/reducer";
 import dialogsReducer from "../Dialogs/Redux/reducer";
 import thunk from "redux-thunk";
+import newsReducer from "../News/Redux/reducer";
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -13,6 +14,7 @@ let reducers = combineReducers({
     sidebar: reducer,
     usersPage: usersReducer,
     auth: authReducer,
+    newsPage:newsReducer
 
 })
 

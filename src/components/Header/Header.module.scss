@@ -13,11 +13,40 @@
         padding: 2px;
     }
     .loginBlock{
-        a{
-            text-decoration:none;
-            background: #FFFFFF;
-            padding: 5px 10px;
-            border-radius: 8px;
+        height: 100%;
+        .profileBlock{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .avatarka{
+                border-radius: 50%;
+            }
+            span{
+                width: 100%;
+                padding: 0 20px;
+                font-size: 17px;
+                color: darkorange;
+            }
+            button{
+                img{
+                    display: none;
+                }
+            }
+            a{
+                width: 80px;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration:none;
+                background: darkorange;
+                color: #FFFFFF;
+                padding: 5px 10px;
+                border-radius: 6px;
+                opacity: 1;
+                &:hover{
+                    opacity: 0.9;
+                }
+            }
         }
     }
 }

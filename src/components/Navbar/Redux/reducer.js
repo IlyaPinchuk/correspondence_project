@@ -1,13 +1,21 @@
 import {SET_FRIEND} from "./action";
+import {
+    AiFillMessage,
+    AiFillProfile,
+    AiOutlineAppstore,
+    AiOutlineNotification, AiOutlineSetting,
+    AiOutlineUsergroupDelete
+} from "react-icons/ai";
 
 let initialState = {
     sideItem: [
-        {name: 'Profile', url: '/profile/24400', id: 1},
-        {name: 'Massages', url: '/dialogs', id: 2},
-        {name: 'Users', url: '/users', id: 3},
-        {name: 'News', url: '/news', id: 4},
-        {name: 'Music', url: '/music', id: 5},
-        {name: 'Settings', url: '/settings', id: 6}],
+        {name: 'Profile', url: '/profile/24400', id: 1, icon: <AiFillProfile/>},
+        {name: 'Massages', url: '/dialogs', id: 2, icon: <AiFillMessage/>},
+        {name: 'Users', url: '/users', id: 3, icon: <AiOutlineUsergroupDelete/>},
+        {name: 'News', url: '/news', id: 4, icon: <AiOutlineAppstore/>},
+        // {name: 'Music', url: '/music', id: 5, icon: <AiOutlineNotification/>},
+        // {name: 'Settings', url: '/settings', id: 6, icon: <AiOutlineSetting/>}
+    ],
     friends: [
         {
             id: 3,
@@ -20,7 +28,7 @@ let initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_FRIEND:
-            return {...state,...state.friends.concat(action.user)}
+            return {...state, ...state.friends.concat(action.user)}
         default:
             return state;
     }

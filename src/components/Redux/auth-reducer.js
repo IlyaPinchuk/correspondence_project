@@ -1,19 +1,23 @@
-import {userAPI} from "../../api/api";
+import {securityAPI, userAPI} from "../../api/api";
 
-const SET_USER_DATA = 'SET_USER_DATA'
-const SET_USER_PHOTO = 'SET_USER_PHOTO'
+const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_PHOTO = 'SET_USER_PHOTO';
+const GET_CAPTCHA_URL = 'GET_CAPTCHA_URL'
+
 
 let initialState = {
     userId: null,
     email: null,
     login: null,
     isAuth: false,
-    photo: null
+    photo: null,
+    captchaUrl: null
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+        case GET_CAPTCHA_URL:
             return {
                 ...state,
                 ...action.data,
@@ -35,6 +39,11 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
     type: SET_USER_DATA,
     data: {userId, email, login, isAuth}
 });
+export const getCaptchaUrlSuccess = (captchaUrl) => ({
+    type: GET_CAPTCHA_URL,
+    data: {captchaUrl}
+});
+
 export const setUserPhoto = (photo) => ({type: SET_USER_DATA, data: {photo}});
 
 export const getAuth = () => async (dispatch) => {
@@ -45,11 +54,20 @@ export const getAuth = () => async (dispatch) => {
     }
 };
 
-export const login = (email, password, rememberMe) => async (dispatch) => {
-    const response = await userAPI.login(email, password, rememberMe);
+export const login = (email, password, rememberMe, captcha) => async (dispatch) => {
+    const response = await userAPI.login(email, password, rememberMe, captcha);
     if (response.resultCode === 0) {
         dispatch(getAuth())
+    } else if (response.resultCode === 10) {
+        dispatch(getCaptchaUrl());
     }
+};
+
+export const getCaptchaUrl = () => async (dispatch) => {
+    const response = await securityAPI.getCaptchaUrl();
+    const captchaUrl = response.data.url;
+    dispatch(getCaptchaUrlSuccess(captchaUrl));
+
 };
 
 export const logout = () => async (dispatch) => {

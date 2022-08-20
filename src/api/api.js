@@ -10,7 +10,7 @@ export const userAPI = {
     getUsers(currentPage, pageSize) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(r => r.data);
     },
-    followed (userId){
+    followed(userId) {
         return instance.get(`follow/${userId}`).then(r => r.data);
     },
     follow(userId) {
@@ -22,8 +22,8 @@ export const userAPI = {
     authMe() {
         return instance.get('auth/me').then(r => r.data);
     },
-    login(email, password, rememberMe = false) {
-        return instance.post('auth/login', {email, password, rememberMe}).then(r => r.data);
+    login(email, password, rememberMe = true, captcha) {
+        return instance.post('auth/login', {email, password, rememberMe,captcha}).then(r => r.data);
     },
     logout() {
         return instance.delete('auth/login',).then(r => r.data);
@@ -49,6 +49,16 @@ export const profileAPI = {
                 'Content-Type': `multipart/form-data`
             }
         }).then(r => r.data)
+    },
+    saveProfile(profile){
+        return instance.put('profile',profile).then(r => r.data)
     }
 }
+export const securityAPI = {
+    getCaptchaUrl() {
+        return instance.get('security/get-captcha-url')
+    }
+};
+
+
 

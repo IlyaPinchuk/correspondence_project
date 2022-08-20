@@ -1,5 +1,51 @@
-.News{
- margin: 10px;
-  background: green;
-  height: 100px;
+.News {
+  margin: 10px;
+  background: rgba(78, 78, 78, 0.431372549);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  width: 235px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    h3 {
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    transition: 0.5s;
+
+    .photoNews {
+      img {
+        box-shadow: 0 0 14px 1px lightsalmon;
+      }
+    }
+
+  }
+
+  h3 {
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: white;
+
+    }
+  }
+
+  .photoNews {
+    img {
+      height: 140px;
+      border-radius: 12px;
+
+      &:hover {
+        box-shadow: 0 0 14px 1px lightsalmon;
+      }
+    }
+
+  }
 }
