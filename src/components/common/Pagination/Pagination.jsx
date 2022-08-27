@@ -3,11 +3,11 @@ import React, {useState} from "react";
 
 
 const Pagination = ({totalUsersCount, pageSize, currentPage, onClick, portionSize = 5}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize)
-    const pages = []
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+    const pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
-    }
+    };
 
     let portionCount = Math.ceil(pagesCount / portionSize);
     let [portionNumber, setPortionNumber] = useState(1);
@@ -32,4 +32,4 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onClick, portionSiz
     )
 }
 
-export default Pagination
+export default Pagination;

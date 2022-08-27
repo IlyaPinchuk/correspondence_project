@@ -17,11 +17,16 @@ export const setIsLoading = (isLoading) => ({type: TOGGLE_IS_LOADER, isLoading})
 export const toggleFollowingProgress = (IsActive, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, IsActive, userId});
 
 export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
-    dispatch(setIsLoading(true));
-    const data = await userAPI.getUsers(currentPage, pageSize);
-    dispatch(setIsLoading(false));
-    dispatch(setTotalUsersCount(data.totalCount));
-    dispatch(setUsers(data.items));
+    try {
+        dispatch(setIsLoading(true));
+        const data = await userAPI.getUsers(currentPage, pageSize);
+        dispatch(setIsLoading(false));
+        dispatch(setTotalUsersCount(data.totalCount));
+        dispatch(setUsers(data.items));
+
+    } catch (e) {
+    alert('error')
+    }
 }
 
 

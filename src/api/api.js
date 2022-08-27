@@ -5,7 +5,8 @@ const instance = axios.create({
     withCredentials: true,
     headers: {'API-KEY': '4fa9307d-4eff-4d72-a762-06fff13c42d9'}
 
-})
+});
+
 export const userAPI = {
     getUsers(currentPage, pageSize) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(r => r.data);
@@ -27,9 +28,9 @@ export const userAPI = {
     },
     logout() {
         return instance.delete('auth/login',).then(r => r.data);
-    }
+    },
 
-}
+};
 
 export const profileAPI = {
     getProfile(userId) {
@@ -52,8 +53,9 @@ export const profileAPI = {
     },
     saveProfile(profile){
         return instance.put('profile',profile).then(r => r.data)
-    }
-}
+    },
+};
+
 export const securityAPI = {
     getCaptchaUrl() {
         return instance.get('security/get-captcha-url')
