@@ -3,7 +3,7 @@ import NavLinkItem from './NavLinkItem/NavLinkItem';
 import {useDispatch, useSelector} from "react-redux";
 import Button from "../common/Button/Button";
 import React from "react";
-import {logout} from "../Redux/auth-reducer";
+import {logout} from "../Redux/auth-reducer.ts";
 import {AiOutlineLogout} from "react-icons/ai";
 
 

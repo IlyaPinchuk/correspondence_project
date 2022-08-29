@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../Redux/auth-reducer";
+import {login} from "../Redux/auth-reducer.ts";
 import {useNavigate} from "react-router-dom";
 import classes from "./Login.module.scss";
 import {useForm} from "react-hook-form";

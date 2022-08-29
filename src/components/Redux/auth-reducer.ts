@@ -1,11 +1,13 @@
 import {securityAPI, userAPI} from "../../api/api";
+import {IAuthReducerShape} from "../../Models/interfaces";
+import {AnyAction} from "redux";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_USER_PHOTO = 'SET_USER_PHOTO';
 const GET_CAPTCHA_URL = 'GET_CAPTCHA_URL'
 
 
-let initialState = {
+let initialState:IAuthReducerShape = {
     userId: null,
     email: null,
     login: null,
@@ -14,7 +16,7 @@ let initialState = {
     captchaUrl: null
 }
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action: AnyAction):IAuthReducerShape => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL:

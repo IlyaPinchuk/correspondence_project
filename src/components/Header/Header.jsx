@@ -2,7 +2,7 @@ import classes from './Header.module.scss'
 import {NavLink} from "react-router-dom";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getAuth} from "../Redux/auth-reducer";
+import {getAuth} from "../Redux/auth-reducer.ts";
 
 
 const Header = () => {

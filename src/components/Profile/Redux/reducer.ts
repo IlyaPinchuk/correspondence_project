@@ -2,15 +2,16 @@ import {
     ADD_POST,
     DELETE_POST,
     IS_OWNER,
-    isOwner,
     SET_PHOTO,
     SET_STATUS,
     SET_USER_PROFILE,
     UPDATE_NEW_POST_TEXT
 } from "./action";
+import {IProfileReducerShape} from "../../../Models/interfaces";
+import {AnyAction} from "redux";
 
 
-let initialState = {
+let initialState:IProfileReducerShape = {
     posts: [
         {
             id: 1,
@@ -45,7 +46,7 @@ let initialState = {
 
 };
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action:AnyAction):IProfileReducerShape => {
     switch (action.type) {
         case ADD_POST: {
             return {
