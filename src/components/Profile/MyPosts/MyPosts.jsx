@@ -7,7 +7,6 @@ import {useDispatch} from "react-redux";
 import {addPost, onPostChange} from "../Redux/action";
 
 const MyPosts = ({profilePage}) => {
-    console.log(profilePage.posts)
     const dispatch = useDispatch();
     const setPost = () => dispatch(addPost());
     const onChange = (e) => dispatch(onPostChange(e.currentTarget.value));

@@ -3,7 +3,6 @@ import {
     AiFillMessage,
     AiFillProfile,
     AiOutlineAppstore,
-    AiOutlineNotification, AiOutlineSetting,
     AiOutlineUsergroupDelete
 } from "react-icons/ai";
 
@@ -13,8 +12,6 @@ let initialState = {
         {name: 'Massages', url: '/dialogs', id: 2, icon: <AiFillMessage/>},
         {name: 'Users', url: '/users', id: 3, icon: <AiOutlineUsergroupDelete/>},
         {name: 'News', url: '/news', id: 4, icon: <AiOutlineAppstore/>},
-        // {name: 'Music', url: '/music', id: 5, icon: <AiOutlineNotification/>},
-        // {name: 'Settings', url: '/settings', id: 6, icon: <AiOutlineSetting/>}
     ],
     friends: [
         {
@@ -25,7 +22,7 @@ let initialState = {
     ]
 }
 
-const reducer = (state = initialState, action) => {
+const sidebarReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_FRIEND:
             return {...state, ...state.friends.concat(action.user)}
@@ -33,4 +30,4 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
-export default reducer;
+export default sidebarReducer;
