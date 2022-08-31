@@ -43,7 +43,6 @@ let initialState:IProfileReducerShape = {
     status: '',
     photo: null,
     isOwner: false,
-
 };
 
 const profileReducer = (state = initialState, action:AnyAction):IProfileReducerShape => {
@@ -95,6 +94,5 @@ const profileReducer = (state = initialState, action:AnyAction):IProfileReducerS
             return state;
     }
 };
-
 
 export default profileReducer;

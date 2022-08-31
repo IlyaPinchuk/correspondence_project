@@ -1,14 +1,16 @@
 import {
     FOLLOW,
     SET_CURRENT_PAGE,
-    SET_TOTAL_COUNT, ADD_USER,
+    SET_TOTAL_COUNT,
     TOGGLE_IS_FOLLOWING_PROGRESS,
     TOGGLE_IS_LOADER,
     UN_FOLLOW, SET_USERS
 } from "./action";
 import {updateObjectInArray} from "../../../untils/object-helpers";
+import {IUsersReducerShape} from "../../../Models/interfaces";
+import {AnyAction} from "redux";
 
-let initialState = {
+let initialState: IUsersReducerShape = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
@@ -16,7 +18,7 @@ let initialState = {
     isLoading: false,
     followingInProgress: []
 };
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action: AnyAction): IUsersReducerShape => {
     switch (action.type) {
 
         case SET_USERS:

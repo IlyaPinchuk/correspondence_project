@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/",
+    "noImplicitAny": false,
+    "module": "es2015",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "noLib": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "es2016",
+      "dom",
+      "es2016.array.include"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
+  }
+}

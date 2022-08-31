@@ -64,3 +64,16 @@ export interface IPosts {
     img: string
 }
 
+export  interface IUsersReducerShape {
+    users: Array<IUsers>
+    pageSize: number
+    totalUsersCount:number
+    currentPage: number
+    isLoading: boolean
+    followingInProgress: Array<number>
+}
+export interface IUsers {
+    userId: number
+    followed: boolean
+}
+

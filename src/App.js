@@ -6,7 +6,7 @@ import Settings from "./components/Settings/Settings";
 import {Route, Routes} from 'react-router-dom';
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
-import Users from "./components/Users/Users";
+import Users from "./components/Users/Users.tsx";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";

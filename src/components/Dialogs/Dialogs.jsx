@@ -5,7 +5,7 @@ import Massage from "./Massage/Massage";
 import Button from "../common/Button/Button";
 import Input from "../common/Input/Input";
 import {useNavigate} from 'react-router-dom';
-import {onMessageChange, sendMessage} from "./Redux/action.ts";
+import {onMessageChange, sendMessage} from "./Redux/action";
 import {useDispatch, useSelector} from "react-redux";
 
 

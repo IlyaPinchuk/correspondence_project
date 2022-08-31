@@ -4,7 +4,7 @@ import userPhoto from "../../../assets/no-photo.png";
 import Button from "../../common/Button/Button";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {follow, unFollow} from "../Redux/action";
+import {follow, unFollow} from "../Redux/action.ts";
 import Avatar from "../../common/Avatar/Avatar";
 import UserData from "./UserData/UserData";
 

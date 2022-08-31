@@ -4,10 +4,7 @@ import NewsItem from "./NewsItem/NewsItem";
 import {useSelector} from "react-redux";
 
 const News = () => {
-    const {newsPage} = useSelector((state) => ({
-        newsPage: state.newsPage
-    }))
-    let date = new Date();
+    const newsPage = useSelector(state => state.newsPage)
     return (
         <div className={classes.wrapperNews}>
             {newsPage.news.map(n => <NewsItem key={n.id} news={n.urlNews} src={n.src} title={n.title}/>)}

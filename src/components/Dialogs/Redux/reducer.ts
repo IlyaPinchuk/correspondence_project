@@ -1,4 +1,4 @@
-import {NEW_MESSAGE, SEND_MESSAGE} from "./action.ts";
+import {NEW_MESSAGE, SEND_MESSAGE} from "./action";
 import {AnyAction} from "redux";
 import {IDialogsReducerShape} from "../../../Models/interfaces";
 
